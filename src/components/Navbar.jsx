@@ -1,78 +1,87 @@
 import { useState } from "react";
-import srmlogo from '../assets/SRM_Logo.png'
+import srmLogo from "../assets/SRM_Logo.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export default function NavBar() {
-    const [navbar, setNavbar] = useState(false);
+function NavElement() {
+  const navElementProperties = `text-gray-600 hover:text-blue-600 ease-in duration-600 transition hover:scale-[115%]`;
+  return (
+    <>
+      <li className={navElementProperties}>
+        <Link to="/">Home</Link>
+      </li>
+      <li className={navElementProperties}>
+        <Link to="/">About Us</Link>
+      </li>
+      <li className={navElementProperties}>
+        <Link to="/">Events</Link>
+      </li>
+      <li className={navElementProperties}>
+        <Link to="/">Contact Us</Link>
+      </li>
+    </>
+  );
+}
 
-    return (
-        <nav className="w-full bg-white shadow">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
-                <div>
-                    <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="#">
-                        <img src={srmlogo} alt="" className='inline' />
-                        </a>
-                        <div className="md:hidden">
-                            <button
-                                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-                                onClick={() => setNavbar(!navbar)}
-                            >
-                                {navbar ? (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                ) : (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M4 6h16M4 12h16M4 18h16"
-                                        />
-                                    </svg>
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                            navbar ? "block" : "hidden"
-                        }`}
-                    >
-                        <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="#">Home</a>
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="#">About Us</a>
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="#">Events</a>
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-600">
-                                <a href="#">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    );
+export default function Navbar() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  return (
+    <nav className="flex justify-around bg-white shadow p-3 sticky top-0 bg-opacity-70 backdrop-blur z-10">
+      <div className="image-box">
+        <Link to="/">
+          <img
+            src={srmLogo}
+            alt="logo"
+            className="w-40 hover:scale-105 ease-in duration-400 transition"
+          />
+        </Link>
+      </div>
+      <div className="mobile-nav md:hidden flex items-center">
+        <button
+          className="p-2 text-gray-700 rounded-md outline-none border-gray-400 border"
+          onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            viewBox={isMobileNavOpen ? "0 0 20 20" : "0 0 24 24"}
+            fill={isMobileNavOpen ? "currentColor" : "none"}
+            stroke={isMobileNavOpen ? "" : "currentColor"}
+            strokeWidth={isMobileNavOpen ? 1 : 2}
+          >
+            {isMobileNavOpen ? (
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+        <AnimatePresence>
+          {isMobileNavOpen && (
+            <motion.ul
+              className="absolute top-24 left-0 flex items-center flex-col gap-4 bg-white bg-opacity-90 shadow p-4 rounded-md w-full"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+            >
+              <NavElement />
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </div>
+      <div className="nav hidden md:flex items-center">
+        <ul className="flex gap-8">
+          <NavElement />
+        </ul>
+      </div>
+    </nav>
+  );
 }

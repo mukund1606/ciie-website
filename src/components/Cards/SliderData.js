@@ -1,0 +1,34 @@
+export const SliderData = [
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8B0np9p4JIkMyNdtAnhL8R-BtD2jdPZdoHquQtWMlOt3iYZeqtRtQ3oHRSPjEKUv2smZ093cxVz1swAz5Wxt2yPmTTL930fxJ9uPrwX8NLJbhWBUwO2G2yOgS2Dgv6bM9vmtexn7xRzP1i3rClhBtdB=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8D17T05ai-d30oJVsMyKO1DkdHLvUDuKjnf4g0ElDC7zax7rElpno_c9Wlwa_76tdtjlKOr3WQifj21f3xGjcV77Kouv-3OOk4LT8ETbHmqa5fyc7RojgY5jIqQQuPBfeR556Spy3Htrh31l7gn8hJ9=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8Abq9xnWzJWPEA9LoLZGNk1JOqQHGy6A7b_SCG9pjQjWb6a-Cmbp_Bb_aXq0QJjtbrKZBUNf9A9LG6hKx6RAtUcx8ajIKXskQBiB-nHSubJRI2xcIulc6spXWSpGBvdvASv0Zo_-pzxSZ1fr0XogFEJ=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8DEDYD6dDUil5zFHMZCu9UWyGKgvrSh_tBeLU-HL0LPJO41Cg1CoZgVJSvjSIvC8n7LEIyecXEEO7gQ6rZ9wNHMaOfAX3NqbR-9CjDdsUyajW-GQcLY_o3P5WRHJtdpo7crYxYoVqT408s6mMURCHbm=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8C095JLBAMuw4HUHbbK2kc20aHc9FVAT-JvlwF3W9GQXgU0JjgbC870jFKZ102D-FyHk8clTYXHZwH1Fwr5UmCddthsp6WrDSy78d1je5MVoqAeq5pgf5vvu_tNhcoycPpLG3LSJC1eVjtQ4dozOjeR=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8C0O6O8e44CNjtoXTcwnzAdNzUa7oVSYHYyZBY_AXDpVaVWqTUCRRFOrT4G_4XWdMBcCGFMWq4-ePDVS-9PfzY10U0hrX7S4MxMeZC_kC91k3BltPwwNaVnMUGH-Cusf98XJi5wqDcjfwehlHYb-Ftk=w1280-h720-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8Agjb5ctqOBkRX-PVFMsT1fl2YebfKcF6RzFiO-MuXCY1hJ1FF6S8B7pog3AcBCGCiPg9iGpkpYEd7EfswUoNohZd5MAzWTlShXe3N0cPCdW0q5ZSCVvYUu3VANKGIDVdjtzjwDN1KdgcKlF-EWHmW6=w1280-h960-no?authuser=0",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/pw/AMWts8CpQh4JXh7ZaL92GjI0ClL3MU-EUGynl8yQQzS-ZH3yuYV4RqyBx3a0AWKd4-zfZLy4FaK8Gwa36qaBMrbwjrQY4TO5r-JOqftEYXu-vh2jmXbxVk_G6WR68Tc1siMdoy6439SJl3FoKe1dn64NOHlD=w1280-h720-no?authuser=0",
+  },
+];

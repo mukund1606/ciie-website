@@ -1,17 +1,27 @@
-import React from 'react'
+import { motion } from "framer-motion";
+import ciieLogo from "../assets/ciiewhite.jpg";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <div className='w-screen h-screen flex flex-col md:flex-row'>
-      <div className='w-full h-full m-10 md:m-20 flex-wrap  '>
-         <h1 className='md:text-5xl text-2xl flex align-text-top justify-center'>CIIE - Center for Innovation, Incubation and Entrepreneurship</h1>
-         <p className='italic md:mt-[10%] md:text-4xl text-xl'>SRM University, Delhi-NCR, Sonepat</p>
-      </div>
-      <div className='md:m-20'>
-         <img src="src\assets\ciiewhite.jpg" alt="ciie" />
-      </div>
-    </div>
-  )
+    <>
+      <motion.div
+        className="flex justify-center"
+        initial={{ opacity: 0, x: -200 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <div className="md:w-4/5 flex flex-col lg:flex-row justify-center items-center p-10">
+          <img src={ciieLogo} className="md:p-10 p-5" alt="ciie" />
+          <div className="flex gap-5 flex-col text-center lg:text-left text-[#0047ab]">
+            <h1 className="xl:text-6xl lg:text-5xl text-4xl font-extrabold">
+              CIIE - Center for Innovation, Incubation and Entrepreneurship
+            </h1>
+            <h2 className="text-2xl lg:text-3xl font-semibold">
+              SRM University, Delhi-NCR, Sonepat
+            </h2>
+          </div>
+        </div>
+      </motion.div>
+    </>
+  );
 }
-
-export default Hero
