@@ -2,12 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Testimonials() {
   return (
-    <motion.section
-      className="py-8 mt-2 dark:bg-[#0047AB] dark:text-gray-100"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 2, ease: "easeOut" }}
-    >
+    <section className="py-8 mt-2 dark:bg-[#0047AB] dark:text-gray-100">
       <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
         <h1 className="p-2 text-5xl font-bold leading-none text-center">
           What our customers are saying about us
@@ -15,7 +10,14 @@ export default function Testimonials() {
       </div>
       <div className="container flex flex-col gap-5 items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
         {[...Array(5)].map((_, i) => (
-          <div key={i} className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+          <motion.div
+            key={i}
+            className="flex flex-col max-w-sm mx-4 my-6 shadow-lg"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
               <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
                 <svg
@@ -52,9 +54,9 @@ export default function Testimonials() {
               </p>
               <p className="text-sm uppercase">Aliquam illum</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

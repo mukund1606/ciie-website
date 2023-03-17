@@ -8,7 +8,8 @@ export default function Hero() {
         className="flex justify-center"
         initial={{ opacity: 0, x: -200 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
       >
         <div className="md:w-4/5 flex flex-col lg:flex-row justify-center items-center p-10">
           <img src={ciieLogo} className="md:p-10 p-5" alt="ciie" />

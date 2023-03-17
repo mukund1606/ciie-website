@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SliderData } from "./SliderData";
 
 const leftArrow = () => (
@@ -37,9 +37,11 @@ const rightArrow = () => (
 );
 
 export default function Cards({ animationTime = 2500 }) {
-  const [isVisible, setIsVisible] = useState(true);
   const [current, setCurrent] = useState(0);
+  const [isNext, setIsNext] = useState(true);
   const length = SliderData.length;
+  const leftAnimation = { x: "100vw", opacity: 0, scale: 0.5 };
+  const rightAnimation = { x: "-100vw", opacity: 0, scale: 0.5 };
 
   function prevSlide() {
     setCurrent(current === 0 ? length - 1 : current - 1);
@@ -51,22 +53,15 @@ export default function Cards({ animationTime = 2500 }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsVisible(false);
       setTimeout(() => {
-        nextSlide();
-        setIsVisible(true);
+        isNext ? nextSlide() : prevSlide();
       }, animationTime / 2);
     }, animationTime);
     return () => clearInterval(interval);
   });
 
   return (
-    <motion.div
-      className="flex justify-center"
-      initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
+    <div className="flex justify-center overflow-x-hidden">
       {
         // Pre Caching Images
         SliderData.map(
@@ -81,17 +76,16 @@ export default function Cards({ animationTime = 2500 }) {
             )
         )
       }
-      <motion.div
+      <div
         className={`relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video text-[#E9E8E8]`}
       >
         <div
           className="absolute top-[calc(50%-20px)] p-1 z-10 left-3 md:left-5 bg-[#20262E] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
           onClick={() => {
-            setIsVisible(false);
             setTimeout(() => {
+              setIsNext(false);
               prevSlide();
-              setIsVisible(true);
-            }, animationTime / 2);
+            }, 10 / 2);
           }}
         >
           {leftArrow()}
@@ -99,37 +93,33 @@ export default function Cards({ animationTime = 2500 }) {
         <div
           className="absolute top-[calc(50%-20px)] p-1 z-10 right-3 md:right-5 bg-[#20262E] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
           onClick={() => {
-            setIsVisible(false);
+            setIsNext(true);
             setTimeout(() => {
               nextSlide();
-              setIsVisible(true);
-            }, animationTime / 2);
+            }, 10 / 2);
           }}
         >
           {rightArrow()}
         </div>
-        <AnimatePresence>
-          {isVisible && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {SliderData.map(
-                (slide, index) =>
-                  index === current && (
-                    <img
-                      key={index}
-                      src={slide.image}
-                      alt={"image-" + (index + 1)}
-                      className="w-full aspect-video object-cover"
-                    />
-                  )
-              )}
-            </motion.div>
+        <div className="w-full aspect-video relative">
+          {SliderData.map(
+            (slide, index) =>
+              index === current && (
+                <motion.img
+                  key={index}
+                  src={slide.image}
+                  alt={"image-" + (index + 1)}
+                  className="w-full aspect-video object-cover absolute"
+                  // Left to Right
+                  initial={isNext ? rightAnimation : leftAnimation}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={isNext ? leftAnimation : rightAnimation}
+                  transition={{ duration: 0.5 }}
+                />
+              )
           )}
-        </AnimatePresence>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </div>
   );
 }

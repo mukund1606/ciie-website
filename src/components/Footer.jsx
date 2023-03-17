@@ -16,12 +16,12 @@ export default function Footer() {
             </svg>
           </div>
           <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
-            <li>
+            <li className="hover:scale-110 hover:text-[#0a87c2] transition ease-linear duration-300">
               <Link rel="noopener noreferrer" yo="#">
                 Terms of Use
               </Link>
             </li>
-            <li>
+            <li className="hover:scale-110 hover:text-[#0a87c2] transition ease-linear duration-300">
               <Link to="#" rel="noopener noreferrer">
                 Privacy
               </Link>
@@ -29,17 +29,17 @@ export default function Footer() {
           </ul>
         </div>
         <ul className="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
-          <li>
+          <li className="hover:scale-110 hover:text-[#0a87c2] transition ease-linear duration-300">
             <Link rel="noopener noreferrer" to="#">
               Instagram
             </Link>
           </li>
-          <li>
+          <li className="hover:scale-110 hover:text-[#0a87c2] transition ease-linear duration-300">
             <Link rel="noopener noreferrer" to="#">
               Facebook
             </Link>
           </li>
-          <li>
+          <li className="hover:scale-110 hover:text-[#0a87c2] transition ease-linear duration-300">
             <Link rel="noopener noreferrer" to="#">
               Twitter
             </Link>
