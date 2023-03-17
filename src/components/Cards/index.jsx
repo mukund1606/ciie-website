@@ -40,8 +40,8 @@ export default function Cards({ animationTime = 2500 }) {
   const [current, setCurrent] = useState(0);
   const [isNext, setIsNext] = useState(true);
   const len = SliderData.length;
-  const leftAnimation = { x: "100%" };
-  const rightAnimation = { x: "-100%" };
+  const rightAnimation = { x: "100%" };
+  const leftAnimation = { x: "-100%" };
 
   function prevSlide() {
     setCurrent(current === 0 ? len - 1 : current - 1);
@@ -73,7 +73,7 @@ export default function Cards({ animationTime = 2500 }) {
         ))
       }
       <div
-        className={`relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video text-[#E9E8E8]`}
+        className="relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video text-[#E9E8E8]"
       >
         <div
           className="absolute top-[calc(50%-20px)] p-1 z-10 left-3 md:left-5 bg-[#20262E] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
@@ -107,9 +107,9 @@ export default function Cards({ animationTime = 2500 }) {
           transition={{ duration: 0.5 }}
         >
           <img
-            src={SliderData[current === len - 1 ? 0 : current + 1].image}
-            alt={`image-${current === len - 1 ? 0 : current + 1}`}
-            className="prev-image w-full aspect-video object-cover rounded-2xl"
+            src={SliderData[current === 0 ? len - 1 : current - 1].image}
+            alt={"image-" + (current === 0 ? len - 1 : current - 1)}
+            className="next-image w-full aspect-video object-cover rounded-2xl"
           />
           <img
             src={SliderData[current].image}
@@ -117,9 +117,9 @@ export default function Cards({ animationTime = 2500 }) {
             className="current-image w-full aspect-video object-cover rounded-2xl"
           />
           <img
-            src={SliderData[current === 0 ? len - 1 : current - 1].image}
-            alt={"image-" + (current === 0 ? len - 1 : current - 1)}
-            className="next-image w-full aspect-video object-cover rounded-2xl"
+            src={SliderData[current === len - 1 ? 0 : current + 1].image}
+            alt={`image-${current === len - 1 ? 0 : current + 1}`}
+            className="prev-image w-full aspect-video object-cover rounded-2xl"
           />
         </motion.div>
         <div className="button w-full flex justify-center pt-4 p-2 gap-2">
