@@ -39,16 +39,16 @@ const rightArrow = () => (
 export default function Cards({ animationTime = 2500 }) {
   const [current, setCurrent] = useState(0);
   const [isNext, setIsNext] = useState(true);
-  const length = SliderData.length;
-  const leftAnimation = { x: "100vw", opacity: 0, scale: 0.5 };
-  const rightAnimation = { x: "-100vw", opacity: 0, scale: 0.5 };
+  const len = SliderData.length;
+  const leftAnimation = { x: "100%" };
+  const rightAnimation = { x: "-100%" };
 
   function prevSlide() {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    setCurrent(current === 0 ? len - 1 : current - 1);
   }
 
   function nextSlide() {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+    setCurrent(current === len - 1 ? 0 : current + 1);
   }
 
   useEffect(() => {
@@ -59,22 +59,18 @@ export default function Cards({ animationTime = 2500 }) {
     }, animationTime);
     return () => clearInterval(interval);
   });
-
   return (
-    <div className="flex justify-center overflow-x-hidden">
+    <div className="carousel flex items-center justify-center text-[#E9E8E8] overflow-hidden select-none">
       {
         // Pre Caching Images
-        SliderData.map(
-          (slide, index) =>
-            index === current && (
-              <img
-                key={index}
-                src={slide.image}
-                alt={"image-" + (index + 1)}
-                style={{ display: "none" }}
-              />
-            )
-        )
+        SliderData.map((slide, index) => (
+          <img
+            key={index}
+            src={slide.image}
+            alt={"image-" + (index + 1)}
+            style={{ display: "none" }}
+          />
+        ))
       }
       <div
         className={`relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video text-[#E9E8E8]`}
@@ -101,23 +97,42 @@ export default function Cards({ animationTime = 2500 }) {
         >
           {rightArrow()}
         </div>
-        <div className="w-full aspect-video relative">
-          {SliderData.map(
-            (slide, index) =>
-              index === current && (
-                <motion.img
-                  key={index}
-                  src={slide.image}
-                  alt={"image-" + (index + 1)}
-                  className="w-full aspect-video object-cover absolute"
-                  // Left to Right
-                  initial={isNext ? rightAnimation : leftAnimation}
-                  animate={{ x: 0, opacity: 1, scale: 1 }}
-                  exit={isNext ? leftAnimation : rightAnimation}
-                  transition={{ duration: 0.5 }}
-                />
-              )
-          )}
+        <motion.div
+          key={current}
+          className="w-full aspect-video relative flex justify-center gap-2"
+          // Left to Right
+          initial={isNext ? rightAnimation : leftAnimation}
+          animate={{ x: 0 }}
+          exit={isNext ? leftAnimation : rightAnimation}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src={SliderData[current === len - 1 ? 0 : current + 1].image}
+            alt={`image-${current === len - 1 ? 0 : current + 1}`}
+            className="prev-image w-full aspect-video object-cover rounded-2xl"
+          />
+          <img
+            src={SliderData[current].image}
+            alt={"image-" + current}
+            className="current-image w-full aspect-video object-cover rounded-2xl"
+          />
+          <img
+            src={SliderData[current === 0 ? len - 1 : current - 1].image}
+            alt={"image-" + (current === 0 ? len - 1 : current - 1)}
+            className="next-image w-full aspect-video object-cover rounded-2xl"
+          />
+        </motion.div>
+        <div className="button w-full flex justify-center pt-4 p-2 gap-2">
+          {SliderData.map((_, index) => (
+            <input
+              type="radio"
+              key={index}
+              name="image-button"
+              className="h-4 w-4 text-[#0047ab] rounded-full border-2 border-[#0a87c2] focus:outline-none focus:ring-2 focus:ring-[#0047ab]"
+              onClick={() => setCurrent(index)}
+              {...(current === index && { checked: true })}
+            ></input>
+          ))}
         </div>
       </div>
     </div>
