@@ -107,17 +107,17 @@ export default function Cards({ animationTime = 2500 }) {
           <img
             src={SliderData[current === 0 ? len - 1 : current - 1].image}
             alt={"image-" + (current === 0 ? len - 1 : current - 1)}
-            className="next-image w-full aspect-video object-cover rounded-2xl"
+            className="next-image w-full min-w-full aspect-video object-cover rounded-2xl"
           />
           <img
             src={SliderData[current].image}
             alt={"image-" + current}
-            className="current-image w-full aspect-video object-cover rounded-2xl"
+            className="current-image w-full min-w-full aspect-video object-cover rounded-2xl"
           />
           <img
             src={SliderData[current === len - 1 ? 0 : current + 1].image}
             alt={`image-${current === len - 1 ? 0 : current + 1}`}
-            className="prev-image w-full aspect-video object-cover rounded-2xl"
+            className="prev-image w-full min-w-full aspect-video object-cover rounded-2xl"
           />
         </motion.div>
         <div className="button w-full flex justify-center pt-4 p-2 gap-2">
