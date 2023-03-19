@@ -72,7 +72,7 @@ export default function Cards({ animationTime = 2500 }) {
           />
         ))
       }
-      <div className="relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video dark:text-[#E9E8E8] text-[#20262E]">
+      <div className="relative slider w-[90%] lg:w-[85%] xl:w-[79%] saturate-150 aspect-video dark:text-[#E9E8E8] text-[#20262E]">
         <div
           className="absolute top-[calc(50%-20px)] p-1 z-10 left-3 md:left-5 dark:bg-[#20262E] bg-[#E9E8E8] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
           onClick={() => {

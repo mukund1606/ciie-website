@@ -13,7 +13,7 @@ export default function Testimonials() {
         {testimonalsData.map((data, i) => (
           <motion.div
             key={i}
-            className="flex flex-col max-w-md mx-2 my-6 shadow-lg hover:scale-110 duration-500 ease-in-out"
+            className="flex flex-col max-w-md mx-6 my-6 shadow-lg hover:scale-110 duration-500 ease-in-out"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
