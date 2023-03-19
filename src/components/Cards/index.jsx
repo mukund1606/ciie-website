@@ -72,11 +72,9 @@ export default function Cards({ animationTime = 2500 }) {
           />
         ))
       }
-      <div
-        className="relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video text-[#E9E8E8]"
-      >
+      <div className="relative slider w-full lg:w-[85%] xl:w-[79%] saturate-150 aspect-video dark:text-[#E9E8E8] text-[#20262E]">
         <div
-          className="absolute top-[calc(50%-20px)] p-1 z-10 left-3 md:left-5 bg-[#20262E] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
+          className="absolute top-[calc(50%-20px)] p-1 z-10 left-3 md:left-5 dark:bg-[#20262E] bg-[#E9E8E8] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
           onClick={() => {
             setTimeout(() => {
               setIsNext(false);
@@ -87,7 +85,7 @@ export default function Cards({ animationTime = 2500 }) {
           {leftArrow()}
         </div>
         <div
-          className="absolute top-[calc(50%-20px)] p-1 z-10 right-3 md:right-5 bg-[#20262E] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
+          className="absolute top-[calc(50%-20px)] p-1 z-10 right-3 md:right-5 dark:bg-[#20262E] bg-[#E9E8E8] hover:scale-115 ease-out duration-500 sm:p-2 rounded-[50%]"
           onClick={() => {
             setIsNext(true);
             setTimeout(() => {
@@ -128,8 +126,8 @@ export default function Cards({ animationTime = 2500 }) {
               type="radio"
               key={index}
               name="image-button"
-              className="h-4 w-4 text-[#0047ab] rounded-full border-2 border-[#0a87c2] focus:outline-none focus:ring-2 focus:ring-[#0047ab]"
-              onClick={() => setCurrent(index)}
+              className="h-4 w-4 text-[#0047ab] rounded-full border-2 border-[#0a87c2]  focus:outline-none focus:ring-2 focus:ring-[#0047ab]"
+              onChange={() => setCurrent(index)}
               {...(current === index && { checked: true })}
             ></input>
           ))}

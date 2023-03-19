@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
+import testimonalsData from "../data/testimonials.json";
 
 export default function Testimonials() {
   return (
-    <section className="py-8 mt-2 dark:bg-[#0047AB] dark:text-gray-100">
-      <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
-        <h1 className="p-2 text-5xl font-bold leading-none text-center">
+    <section className="py-8 mt-2 dark:bg-[#00275e] bg-slate-200 dark:text-gray-100">
+      <div className="container flex flex-col items-center mx-auto p-5 md:p-10 md:px-12">
+        <h1 className="p-2 text-4xl md:text-5xl font-bold leading-none text-center">
           What our customers are saying about us
         </h1>
       </div>
-      <div className="container flex flex-col gap-5 items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-        {[...Array(5)].map((_, i) => (
+      <div className="container flex gap-4 items-center justify-center mx-auto flex-wrap lg:justify-evenly lg:px-10">
+        {testimonalsData.map((data, i) => (
           <motion.div
             key={i}
-            className="flex flex-col max-w-sm mx-4 my-6 shadow-lg"
+            className="flex flex-col max-w-md mx-2 my-6 shadow-lg hover:scale-110 duration-500 ease-in-out"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
+            <div className="px-4 py-12 rounded-lg sm:px-8 md:px-12 dark:bg-gray-900 bg-gray-200">
               <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +30,7 @@ export default function Testimonials() {
                   <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                   <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                 </svg>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatibus quibusdam, eligendi exercitationem molestias
-                possimus facere.
+                {data.testimonial}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -43,16 +42,14 @@ export default function Testimonials() {
                 </svg>
               </p>
             </div>
-            <div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-[#0A87C2]">
+            <div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-[#0A87C2] bg-gray-700 text-slate-100">
               <img
-                src="https://source.unsplash.com/50x50/?portrait?1"
+                src={data.image}
                 alt=""
                 className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full"
               />
-              <p className="text-xl font-semibold leading-tight">
-                Distinctio Animi
-              </p>
-              <p className="text-sm uppercase">Aliquam illum</p>
+              <p className="text-xl font-semibold leading-tight">{data.name}</p>
+              <p className="text-sm uppercase">{data.position}</p>
             </div>
           </motion.div>
         ))}

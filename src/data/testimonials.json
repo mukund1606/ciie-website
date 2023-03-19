@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Jane Smith",
+    "position": "Product Manager",
+    "image": "https://source.unsplash.com/50x50/?portrait?1",
+    "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus eu lacus lobortis tristique vel eu dui. Nullam eget ultrices metus. Aliquam et magna nisl. Sed at eros eget lorem gravida facilisis. Morbi tincidunt nulla sit amet nibh consectetur, eget ullamcorper turpis faucibus."
+  },
+  {
+    "name": "Mike Johnson",
+    "company": "XYZ Corp.",
+    "position": "Marketing Manager",
+    "image": "https://source.unsplash.com/50x50/?portrait?2",
+    "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus eu lacus lobortis tristique vel eu dui. Nullam eget ultrices metus. Aliquam et magna nisl. Sed at eros eget lorem gravida facilisis. Morbi tincidunt nulla sit amet nibh consectetur, eget ullamcorper turpis faucibus."
+  },
+  {
+    "name": "Sarah Lee",
+    "position": "Product Manager",
+    "image": "https://source.unsplash.com/50x50/?portrait?3",
+    "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus eu lacus lobortis tristique vel eu dui. Nullam eget ultrices metus. Aliquam et magna nisl. Sed at eros eget lorem gravida facilisis. Morbi tincidunt nulla sit amet nibh consectetur, eget ullamcorper turpis faucibus."
+  },
+  {
+    "name": "John Doe",
+    "position": "CTO",
+    "image": "https://source.unsplash.com/50x50/?portrait?4",
+    "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus eu lacus lobortis tristique vel eu dui. Nullam eget ultrices metus. Aliquam et magna nisl. Sed at eros eget lorem gravida facilisis. Morbi tincidunt nulla sit amet nibh consectetur, eget ullamcorper turpis faucibus."
+  },
+  {
+    "name": "Emily Green",
+    "position": "HR Manager",
+    "image": "https://source.unsplash.com/50x50/?portrait?5",
+    "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus eu lacus lobortis tristique vel eu dui. Nullam eget ultrices metus. Aliquam et magna nisl. Sed at eros eget lorem gravida facilisis. Morbi tincidunt nulla sit amet nibh consectetur, eget ullamcorper turpis faucibus."
+  }
+]

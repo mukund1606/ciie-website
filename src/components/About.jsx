@@ -11,7 +11,7 @@ export default function About() {
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <p className="text-lg text-justify leading-7">
+        <p className="text-lg text-justify leading-7 dark:text-slate-200">
           The Centre for Innovation, Incubation and Entrepreneurship (CIIE) is a
           student organization at SRM University that is dedicated to fostering
           and nurturing innovative ideas among students. Our mission is to
